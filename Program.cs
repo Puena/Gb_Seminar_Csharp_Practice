@@ -1,7 +1,7 @@
 ﻿using GB_seminar;
 
 var homeWorkOne = new HomeWorkOne();
-homeWorkOne.TaskTwo();
-homeWorkOne.TaskFour();
-homeWorkOne.TaskSix();
-homeWorkOne.TaskEight();
+var seminarTwo = new Seminar2Online();
+//seminarTwo.TaskOne();
+//seminarTwo.TaskTwo();
+seminarTwo.TaskThree();
