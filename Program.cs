@@ -2,6 +2,8 @@
 
 var homeWorkOne = new HomeWorkOne();
 var seminarTwo = new Seminar2Online();
-//seminarTwo.TaskOne();
-//seminarTwo.TaskTwo();
-seminarTwo.TaskThree();
+var homeworkTwo = new HomeWokrTwo();
+
+homeworkTwo.TaskTen();
+homeworkTwo.TaskThirteen();
+homeworkTwo.TaskFifteen();

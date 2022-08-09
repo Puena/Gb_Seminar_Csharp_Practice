@@ -18,8 +18,8 @@ namespace GB_seminar
         public void TaskTwo()
         {
             Console.WriteLine("Задача 2");
-            var firstNumber = ReadInt("Введите первое число");
-            var secondNumber = ReadInt("Введите второе число");
+            var firstNumber = ReadUtils.ReadInt("Введите первое число");
+            var secondNumber = ReadUtils.ReadInt("Введите второе число");
             var max = firstNumber < secondNumber ? secondNumber : firstNumber;
             Console.WriteLine($"max = {max}");
         }
@@ -33,7 +33,7 @@ namespace GB_seminar
         public void TaskFour()
         {
             Console.WriteLine("Задача 4");
-            var input = ReadSequenseOfInt("Введите последовательность чисел, например 2, 3, 7");
+            var input = ReadUtils.ReadSequenseOfInt("Введите последовательность чисел, например 2, 3, 7");
             Console.WriteLine($"Максимальное число последовательности: {input.Max()}");
         }
 
@@ -46,7 +46,7 @@ namespace GB_seminar
         public void TaskSix()
         {
             Console.WriteLine("Задача 6");
-            var input = ReadInt("Введите целое число");
+            var input = ReadUtils.ReadInt("Введите целое число");
 
             if (input % 2 == 0)
             {
@@ -65,7 +65,7 @@ namespace GB_seminar
         public void TaskEight()
         {
             Console.WriteLine("Задача 8");
-            var input = ReadInt("Введите целое число");
+            var input = ReadUtils.ReadInt("Введите целое число");
             for (int i = 1; i <= input; i++)
             {
                 if (i % 2 == 0)
@@ -76,45 +76,6 @@ namespace GB_seminar
 
         }
 
-        private static int ReadInt(string introMessage, string errorMessage)
-        {
-            int result;
-            Console.WriteLine(introMessage);
-            while (!int.TryParse(Console.ReadLine(), out result))
-            {
-                Console.WriteLine(errorMessage);
-                Console.WriteLine("Повторите попытку");
-            }
-            return result;
-        }
-
-        private static int ReadInt(string introMessage)
-        {
-            return ReadInt(introMessage, "Вы ввели не целое число или не числов вовсе.");
-        }
-
-        private static int[] ReadSequenseOfInt(string introMessage, string errorMessage)
-        {
-            Console.WriteLine(introMessage);
-            while (true)
-            {
-                var input = Console.ReadLine();
-                try
-                {
-                    var result = input.Split(' ', ',').Select(i => int.Parse(i.Trim())).ToArray();
-                    return result;
-                } catch
-                {
-                    Console.WriteLine(errorMessage);
-                    Console.WriteLine("Повторите попытку!");
-                }
-            }
-            
-        }
-
-        private static int[] ReadSequenseOfInt(string introMessage)
-        {
-            return ReadSequenseOfInt(introMessage, "Вы ввели ошибочные числа!");
-        }
+        
     }
 }
