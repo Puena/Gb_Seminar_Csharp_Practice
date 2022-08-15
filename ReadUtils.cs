@@ -25,6 +25,23 @@ namespace GB_seminar
             return ReadInt(introMessage, "Вы ввели не целое число или не числов вовсе.");
         }
 
+        public static double ReadDouble(string introMessage, string errorMessage)
+        {
+            double result;
+            Console.WriteLine(introMessage);
+            while (!double.TryParse(Console.ReadLine(), out result))
+            {
+                Console.WriteLine(errorMessage);
+                Console.WriteLine("Повторите попытку");
+            }
+            return result;
+        }
+
+        public static double ReadDouble(string introMessage)
+        {
+            return ReadDouble(introMessage, "Вы ввели не число.");
+        }
+
         public static int[] ReadSequenseOfInt(string introMessage, string errorMessage)
         {
             Console.WriteLine(introMessage);
@@ -48,6 +65,31 @@ namespace GB_seminar
         public static int[] ReadSequenseOfInt(string introMessage)
         {
             return ReadSequenseOfInt(introMessage, "Вы ввели ошибочные числа!");
+        }
+
+        public static double[] ReadSequenseOfDouble(string introMessage, string errorMessage)
+        {
+            Console.WriteLine(introMessage);
+            while (true)
+            {
+                var input = Console.ReadLine()!;
+                try
+                {
+                    var result = input.Split(' ', ',').Select(i => double.Parse(i.Trim())).ToArray();
+                    return result;
+                }
+                catch
+                {
+                    Console.WriteLine(errorMessage);
+                    Console.WriteLine("Повторите попытку!");
+                }
+            }
+
+        }
+
+        public static double[] ReadSequenseOfDouble(string introMessage)
+        {
+            return ReadSequenseOfDouble(introMessage, "Вы ввели ошибочные числа!");
         }
     }
 }
