@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace GB_seminar
 {
-    /// <summary>
+
+    public class Seminar5Online
+    {
+            /// <summary>
     /// Решение в группах задач:
     /// Задача 32: Напишите программу замена элементов массива: положительные элементы замените на соответствующие отрицательные, и наоборот.
     /// [-4, -8, 8, 2] -> [4, 8, -8, -2]
     /// </summary>
-    public class Seminar5Online
-    {
         public void Task32()
         {
             var arraySize = ReadUtils.ReadInt("Какое количество случайных элементов необходиимо?");
