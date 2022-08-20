@@ -104,7 +104,7 @@ namespace GB_seminar
         private static int[] LogMultiplyCouples(int[] arr)
         {
             var res = new int[arr.Length / 2 + arr.Length % 2];
-            for (int i = 0, k = arr.Length-1; i <= k + (arr.Length % 2); i++, k--)
+            for (int i = 0, k = arr.Length-1; i <= k; i++, k--)
             {
                 var left = arr[i];
                 var right = arr[k];
