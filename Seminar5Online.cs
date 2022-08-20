@@ -108,9 +108,9 @@ namespace GB_seminar
             {
                 var left = arr[i];
                 var right = arr[k];
-
-                if (i == k ) { res[i] = left; return res; }
-                res[i] = right * left;
+                    
+                if (i == k ) res[i] = left;
+                else res[i] = right * left;
             }
             return res;
         }
