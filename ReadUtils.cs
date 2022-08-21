@@ -47,7 +47,7 @@ namespace GB_seminar
             Console.WriteLine(introMessage);
             while (true)
             {
-                var input = Console.ReadLine();
+                var input = Console.ReadLine()!;
                 try
                 {
                     var result = input.Split(' ', ',').Select(i => int.Parse(i.Trim())).ToArray();
