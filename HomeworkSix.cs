@@ -55,6 +55,7 @@ namespace GB_seminar
             int sumDigitsOfNumber = chars.Select(n => Convert.ToInt32(n.ToString())).Sum();
             int multiplicationDigitsOfNumber = chars.Select(n => Convert.ToInt32(n.ToString())).Aggregate((c, n) => c * n);
             Console.WriteLine($"Число в {system} системе координат это {n}, произведение {multiplicationDigitsOfNumber}, сумма {sumDigitsOfNumber}");
+            Console.WriteLine($"Разность произведения и суммы {multiplicationDigitsOfNumber - sumDigitsOfNumber}");
         }
         public void TaskAdditionalV2()
         {
@@ -65,6 +66,8 @@ namespace GB_seminar
             var sumDigitsOfNumber = SumOfDigits(n);
             var multiplicationDigitsOfNumber = MultiplyOfDigits(n);
             Console.WriteLine($"Число в {system} системе координат это {n}, произведение {multiplicationDigitsOfNumber}, сумма {sumDigitsOfNumber}");
+            Console.WriteLine($"Число в {system} системе координат это {n}, произведение {multiplicationDigitsOfNumber}, сумма {sumDigitsOfNumber}");
+            Console.WriteLine($"Разность произведения и суммы {multiplicationDigitsOfNumber - sumDigitsOfNumber}");
         }
 
         private static string IntToSystem(int number, int system)
