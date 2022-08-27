@@ -26,7 +26,7 @@ namespace GB_seminar
             int m = 3, n = 4;
             var arr = Create2DArray(m, n);
             FillArrayTask48(arr);
-            arr.Print(' ', '\n');
+            arr.Print();
             
         }
 
@@ -51,7 +51,7 @@ namespace GB_seminar
             var arr = new int[10, 10];
             arr.FillIntRandomNumbers(1, 10);
             ChangeOddPowerOftwo(arr);
-            arr.Print(' ', '\n');
+            arr.Print();
             ShowMainDiagonal(arr);
         }
 
