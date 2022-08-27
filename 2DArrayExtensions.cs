@@ -50,21 +50,21 @@ namespace GB_seminar
             matrix.Print(' ', '\n', null);
         }
 
-        public static T GetByPosition<T>(this T[,] matrix, int x, int y)
+        public static T GetByPosition<T>(this T[,] matrix, int column, int row)
         {
-            if (y > matrix.GetLength(0) - 1 || x > matrix.GetLength(1) - 1)
+            if (row > matrix.GetLength(0) - 1 || column > matrix.GetLength(1) - 1)
             {
-                throw new Exception($"Элемента с позицией (x: {x}, y: {y}) не существует!");
+                throw new Exception($"Элемента с позицией (x: {column}, y: {row}) не существует!");
             }
 
-            return matrix[y, x];
+            return matrix[row, column];
         }
 
-        public static void PrintElementByPosition<T>(this T[,] matrix, int x, int y)
+        public static void PrintElementByPosition<T>(this T[,] matrix, int column, int row)
         {
             try
             {
-                T el = matrix.GetByPosition(x, y);
+                T el = matrix.GetByPosition(column, row);
                 Console.WriteLine("Вы выбрали элемент со значением " + el);
             }
             catch (Exception ex)

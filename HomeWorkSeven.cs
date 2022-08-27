@@ -41,9 +41,9 @@ namespace GB_seminar
             Console.WriteLine();
             Console.WriteLine("Для доступа к элементу введите его позицию, нумерация начинается с 0");
 
-            int xInput = ReadUtils.ReadInt("Введите позицию по оси X");
-            int yInput = ReadUtils.ReadInt("Введите позицию по оси Y");
-            arr.PrintElementByPosition(xInput, yInput);
+            int columnInput = ReadUtils.ReadInt("Введите номер столбца");
+            int rowInput = ReadUtils.ReadInt("Введите номер строки");
+            arr.PrintElementByPosition(columnInput, rowInput);
         }
 
         /// <summary>
