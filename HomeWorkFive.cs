@@ -64,7 +64,7 @@ namespace GB_seminar
         }
     }
 
-    public static class ArrayExtensions
+    public static class IntArrayExtensions
     {
         /// <summary>
         /// Fill array with random numbers
