@@ -52,7 +52,7 @@ namespace GB_seminar
 
         public static T GetByPosition<T>(this T[,] matrix, int x, int y)
         {
-            if (y > matrix.GetLength(0) - 1 || x > matrix.GetLength(1))
+            if (y > matrix.GetLength(0) - 1 || x > matrix.GetLength(1) - 1)
             {
                 throw new Exception($"Элемента с позицией (x: {x}, y: {y}) не существует!");
             }
