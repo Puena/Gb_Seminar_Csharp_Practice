@@ -53,6 +53,7 @@ namespace GB_seminar
             ChangeOddPowerOftwo(arr);
             arr.Print();
             ShowMainDiagonal(arr);
+            Console.WriteLine("Сумма по диагонали: " + SumMainDiagonal(arr));
         }
 
         private void ChangeOddPowerOftwo(int[,] matrix)
@@ -78,6 +79,19 @@ namespace GB_seminar
                     Console.WriteLine(Tabs(i) + matrix[i, i]);
                 }
             }
+        }
+
+        private int SumMainDiagonal(int[,] matrix)
+        {
+            int sum = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                if (i < matrix.GetLength(1))
+                {
+                    sum += matrix[i, i];
+                }
+            }
+            return sum;
         }
 
         static string Tabs(int n)

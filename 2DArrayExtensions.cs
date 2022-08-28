@@ -60,6 +60,33 @@ namespace GB_seminar
             return matrix[row, column];
         }
 
+        public static int IsExistInFirstColumn(this int[,] matrix, int el)
+        {
+            int columnPosition = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                if (matrix[i, columnPosition]!.Equals(el))
+                {
+                    return i;
+                };
+            }
+            return -1;
+        }
+
+        public static void IncrementValue(this int[,] matrix, int row)
+        {
+            int columnPosition = 1;
+            matrix[row, columnPosition] += 1;
+        }
+
+        public static void AddValue(this int[,] matrix, int row, int value)
+        {
+            int fristColumn = 0;
+            int secondColumn = 1;
+            matrix[row, fristColumn] = value;
+            matrix[row, secondColumn] = 1;
+        }
+
         public static void PrintElementByPosition<T>(this T[,] matrix, int column, int row)
         {
             try

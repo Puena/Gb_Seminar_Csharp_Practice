@@ -11,6 +11,7 @@ var homeworkFive = new HomeWorkFive();
 var seminarSix = new Seminar6Online();
 var homeworkSix = new HomeworkSix();
 var seminarSeven = new Seminar7Online();
+var seminarEight = new Seminar8Online();
 var homeworkSeven = new HomeWorkSeven();
 
 //homeworkTwo.TaskTen();
@@ -25,5 +26,5 @@ var homeworkSeven = new HomeWorkSeven();
 //seminarSix.Task44();
 //homeworkSix.TaskAdditional();
 //homeworkSix.TaskAdditionalV2();
-//seminarSeven.Task49And51();
-homeworkSeven.Task52();
+seminarEight.Task57();
+//homeworkSeven.Task52();
