@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -239,6 +240,136 @@ namespace GB_seminar
                     tempRowIndx = rowIndx;
                 }
                 tempColIndx++;
+            }
+        }
+
+
+        /// <summary>
+        /// Задайте двумерный массив из целых чисел. Напишите программу которая удалит строку и столбец на пересечении которых расположен наименьший элемент массива.
+        /// </summary>
+        public void Task59()
+        {
+            int[,] matrix = ArrayHelpers.Create2dArray<int>(6, 6);
+            matrix.FillIntRandomNumbers(1, 100);
+            matrix.Print();
+            Console.WriteLine();
+            int[] indexOfMinPosition = matrix.IndexOfMin();
+            Console.WriteLine("Min number is " + matrix[indexOfMinPosition[0], indexOfMinPosition[1]]);
+            Console.WriteLine();
+            DeleteRowAndColumnByPositionOfMin(indexOfMinPosition, matrix);
+            matrix.Print(' ', '\n', el => string.Format("{0:D2}", el));
+            Console.WriteLine();
+            int[,] newMatrix = DeleteRowAndColumnByPositionOfMin2(indexOfMinPosition, matrix);
+            newMatrix.Print(' ', '\n', el => string.Format("{0:D2}", el));
+        }
+        private static void DeleteRowAndColumnByPositionOfMin(int[] position, int[,] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (position[0] == i || position[1] == j)
+                    {
+                        matrix[i, j] = 0;
+                    }
+                }
+            }
+        }
+        private static int[,] DeleteRowAndColumnByPositionOfMin2(int[] position, int[,] matrix)
+        {
+            int[,] newMatrix = ArrayHelpers.Create2dArray<int>(matrix.GetLength(0) - 1, matrix.GetLength(1) - 1);
+            int newRowIndx = 0;
+            int newColIndx = 0;
+
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                if (position[0] == i)
+                {
+                    continue;
+                }
+
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (position[1] == j)
+                    {
+                        continue;
+                    }
+
+                    newMatrix[newRowIndx, newColIndx] = matrix[i, j];
+                    newColIndx++;
+                }
+                newColIndx = 0;
+
+                newRowIndx++;
+            }
+            return newMatrix;
+        }
+
+        /// <summary>
+        /// Вывести первые N строк прямоугольника Паскаля. Сделать вывод в виде равнобедренного треугольника.
+        /// </summary>
+        public void Task61()
+        {
+            int[,] matrix = ArrayHelpers.Create2dArray<int>(11, 19);
+            DrawPascalTriangle(matrix);
+            Console.WriteLine();
+            
+        }
+
+        private static void DrawPascalTriangle(int[,] matrix)
+        {
+            int center = (matrix.GetLength(1)-1) / 2;
+            if (center+1 > matrix.GetLength(0))
+            {
+                Console.WriteLine("Не достаточно строк для отрисовки");
+                return;
+            }
+            for (int i = 0; i < center+1; i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (i == 0 && j == center)
+                    {
+                        matrix[i, j] = 1;
+                    } else if (i > 0 && (j == center - i || j == center + i)) 
+                    {
+                        matrix[i, j] = 1;
+                    } else if (i > 1 && j >= 1 && j <= matrix.GetLength(1)-2 
+                        && (matrix[i - 1, j - 1] > 0 || matrix[i - 1, j + 1] > 0))
+                    {
+                        matrix[i, j] = matrix[i - 1, j - 1] + matrix[i - 1, j + 1];
+                    }
+
+                    Console.Write($"{(matrix[i, j] > 0 ? matrix[i, j] : " "),3}");
+                    
+                }
+                Console.WriteLine();
+            }
+        }
+
+
+        private static void PascalTriangle(int[,] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (i == j || j == 0)
+                    {
+                        matrix[i, j] = 1;
+                    }
+                    else if (j > i)
+                    {
+                        matrix[i, j] = 0;
+                    }
+                    else if (i != j)
+                    {
+                        matrix[i, j] = matrix[i - 1, j - 1] + matrix[i - 1, j];
+                    }
+
+                    Console.Write($"{matrix[i, j],4}");
+                }
+                Console.WriteLine();
             }
         }
     }

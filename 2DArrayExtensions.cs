@@ -99,5 +99,27 @@ namespace GB_seminar
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public static int[] IndexOfMin(this int[,] matrix)
+        {
+            int[] minPosition = new int[2] { 0, 0 };
+            int min = matrix[minPosition[0], minPosition[1]];
+            
+
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i,j] < min)
+                    {
+                        min = matrix[i, j];
+                        minPosition[0] = i;
+                        minPosition[1] = j;
+                    }
+                }
+            }
+
+            return minPosition;
+        }
     }
 }

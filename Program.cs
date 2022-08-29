@@ -29,4 +29,4 @@ var homeworkEight = new HomeWorkEight();
 //homeworkSix.TaskAdditionalV2();
 //seminarEight.Task57();
 //homeworkSeven.Task52();
-homeworkEight.Task62();
+homeworkEight.Task61();
