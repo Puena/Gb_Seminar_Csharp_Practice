@@ -335,7 +335,7 @@ namespace GB_seminar
                     {
                         matrix[i, j] = 1;
                     } else if (i > 1 && j >= 1 && j <= matrix.GetLength(1)-2 
-                        && (matrix[i - 1, j - 1] > 0 || matrix[i - 1, j + 1] > 0))
+                        && (matrix[i - 1, j - 1] > 0 && matrix[i - 1, j + 1] > 0))
                     {
                         matrix[i, j] = matrix[i - 1, j - 1] + matrix[i - 1, j + 1];
                     }
