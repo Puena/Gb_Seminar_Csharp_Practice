@@ -310,21 +310,21 @@ namespace GB_seminar
         /// </summary>
         public void Task61()
         {
-            int[,] matrix = ArrayHelpers.Create2dArray<int>(11, 19);
-            DrawPascalTriangle(matrix);
+            int[,] matrix = ArrayHelpers.Create2dArray<int>(20, 25);
+            DrawPascalTriangle(matrix, 13);
             Console.WriteLine();
             
         }
 
-        private static void DrawPascalTriangle(int[,] matrix)
+        private static void DrawPascalTriangle(int[,] matrix, int rows)
         {
             int center = (matrix.GetLength(1)-1) / 2;
-            if (center+1 > matrix.GetLength(0))
+            if (rows > center+1)
             {
-                Console.WriteLine("Не достаточно строк для отрисовки");
+                Console.WriteLine("Не достаточно столбцов для отрисовки");
                 return;
             }
-            for (int i = 0; i < center+1; i++)
+            for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
